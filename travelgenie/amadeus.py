@@ -1,4 +1,4 @@
-# encoding=utf-8
+﻿# encoding=utf-8
 '''
 Created on May 8, 2016
 
@@ -6,14 +6,15 @@ Created on May 8, 2016
 
 The Amadeus Sandbox APIs at https://sandbox.amadeus.com
 '''
+
 from __future__ import unicode_literals, division, print_function
 from pprint import pprint
 import requests
 import logging
 from django.contrib.humanize.templatetags.humanize import naturalday
 from django.utils import dateparse
-from tools.imgix_url_helper import ImagixUrlHelper
-from tools.airports import AIRPORTS
+from imgix_url_helper import ImagixUrlHelper
+from airports import AIRPORTS
 
 LOGGER = logging.getLogger(__name__)
 
@@ -153,7 +154,7 @@ def amadeus_results_to_facebook(amadeus_json, eva_origin, eva_destination):
             else:
                 map_url = ''
             img_text = "Option {}: ${}".format(idx+1, price)
-		 ''' botkit.imgix.net
+
             imgix_helper = ImagixUrlHelper("travelgenie.imgix.net", map_url, sign_key=IMAGIX_SIGN_KEY,
                                            opts=dict( rect="0,0,382,200",
                                                         txtalign='bottom,center', 

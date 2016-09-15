@@ -1,7 +1,7 @@
 '''
-Created on May 18, 2016
+Created on Sep 15, 2016
 
-@author: marina
+@author: Sudhakar
 '''
 from enums import MessagingProviders
 from amadeus import flights_low_fare_search, amadeus_results_to_facebook
@@ -27,12 +27,14 @@ def get_structured_message(messaging_provider, text=None, image_url=None):
     return response
 
 def amadeus_flight_search_webhook(body):
+
     """
         body input: {origin, destination, departDateMin, departDateMax,
             returnDateMin, returnDateMax, travelers,
             attributes, sortBy, sortOrder}
         response format of the messagingProvider
     """
+
     if body.get('messagingProvider') == MessagingProviders.facebook:
         origin = body.get('origin', {})
         origin_airport = origin.get('allAirportsCode')
