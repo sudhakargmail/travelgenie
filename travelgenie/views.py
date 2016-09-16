@@ -17,5 +17,5 @@ def index(request):
     return HttpResponse("Hello, world. You're at the index.")
 
 def searchflight(request):
-	return HttpResponse("Searchflight Request:" + request.body)
+	return HttpResponse("Searchflight Request")
 	#return HttpResponse(main.amadeus_flight_search_webhook(request.body))
